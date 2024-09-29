@@ -26,5 +26,24 @@
     <CopyFileToFolders Include="arial.ttf">
       <Filter>資源檔</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="sound.mp3">
+      <Filter>資源檔</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="snake.ico">
+      <Filter>資源檔</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="snake.jpg">
+      <Filter>資源檔</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SnakeGame.rc">
+      <Filter>資源檔</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

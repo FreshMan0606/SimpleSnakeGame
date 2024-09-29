@@ -4,11 +4,27 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <sfml\audio.hpp>
 
 int main() {
 
 	srand(time(0));
 	sf::Vector2i fieldSize(20, 15);
+	
+	sf::Image image;
+	if (!image.loadFromFile("snake.jpg")) {
+		return EXIT_FAILURE;
+	}
+	
+	sf::SoundBuffer soundbuffer;
+	if (!soundbuffer.loadFromFile("sound.mp3")) {
+		return EXIT_FAILURE;
+	}
+	sf::Sound sound(soundbuffer);
+	
+	sf::Clock foodTime;
+
+	int level = 10;
 	
 	sf::Texture blockTexture;
 	if (!blockTexture.loadFromFile("block.png")) {
@@ -43,14 +59,19 @@ int main() {
 	sf::Text text("score : 0", font, 25);
 	text.setPosition(0, 0);
 
+	sf::Text text2("food Time :", font, 25);
+	text2.setPosition(0.f, 50.f);
+
 
 	sf::RenderWindow window(mode, "SnakeGame");
+	window.setIcon(image.getSize().x, image.getSize().y, image.getPixelsPtr());
 
 	bool isDead = false;
 	
 
 	while (window.isOpen()) {
 		sf::Event event;
+		
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
 				window.close();
@@ -78,6 +99,12 @@ int main() {
 					restar = true;
 				}
 			}
+		}
+		if (foodTime.getElapsedTime().asSeconds() > level) {
+			food.x = rand() % fieldSize.x;
+			food.y = rand() % fieldSize.y;
+			foodTime.restart();
+			
 		}
 
 		if (clock.getElapsedTime().asSeconds() >= 0.1f) {
@@ -112,6 +139,11 @@ int main() {
 					std::stringstream strScore;
 					strScore << "Score: " << score;
 					text.setString(strScore.str());
+					sound.play();
+					if (level > 2) {
+						level--;
+					}
+					foodTime.restart();
 					
 				}
 				else {
@@ -130,6 +162,7 @@ int main() {
 		}
 			if(isDead) {
 				window.clear(sf::Color::Red);
+				
 				if (restar) {
 					snake = { sf::Vector2i(3, 4) };
 					restar = false;
@@ -140,6 +173,8 @@ int main() {
 					text.setString(strScore.str());
 					food.x = rand() % fieldSize.x;
 					food.y = rand() % fieldSize.y;
+					foodTime.restart();
+					level = 10;
 					continue;
 				}
 			}
@@ -157,6 +192,12 @@ int main() {
 				window.draw(block);
 			}
 			window.draw(text);
+			if (!isDead) {
+				std::stringstream strTime;
+				strTime << "food time : " << int(foodTime.getElapsedTime().asSeconds());
+				text2.setString(strTime.str());
+				window.draw(text2);
+			}
 			window.display();
 	}
 
