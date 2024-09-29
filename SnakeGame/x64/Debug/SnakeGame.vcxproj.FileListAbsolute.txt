@@ -8,3 +8,10 @@ C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\libpng16d.dll
 C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\brotlidec.dll
 C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\brotlicommon.dll
 C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\SnakeGame\x64\Debug\SnakeGame.vcxproj.Up2Date
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\sfml-audio-d-2.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\OpenAL32.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\vorbisenc.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\vorbis.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\ogg.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\vorbisfile.dll
+C:\Users\USER\OneDrive\桌面\NTU\C++專題\SnakeGame\x64\Debug\FLAC.dll
